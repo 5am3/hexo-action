@@ -18,6 +18,12 @@ npm install hexo-deployer-git --save
 
 
 # setup secret config
+CHANGYAN_APPID=`echo "$INPUT_ELSE_CONFIG" | awk -F 'CHANGYAN_APPID:' '{print $2}' | awk -F ';' '{print $1}'`
+CHANGYAN_CONF=`echo "$INPUT_ELSE_CONFIG" | awk -F 'CHANGYAN_CONF:' '{print $2}' | awk -F ';' '{print $1}'`
+VALINE_APPID=`echo "$INPUT_ELSE_CONFIG" | awk -F 'VALINE_APPID:' '{print $2}' | awk -F ';' '{print $1}'`
+VALINE_APPKEY=`echo "$INPUT_ELSE_CONFIG" | awk -F 'VALINE_APPKEY:' '{print $2}' | awk -F ';' '{print $1}'`
+GITMENT_CLIENT_ID=`echo "$INPUT_ELSE_CONFIG" | awk -F 'GITMENT_CLIENT_ID:' '{print $2}' | awk -F ';' '{print $1}'`
+GITMENT_CLIENT_SECRET=`echo "$INPUT_ELSE_CONFIG" | awk -F 'GITMENT_CLIENT_SECRET:' '{print $2}' | awk -F ';' '{print $1}'`
 
 sed -i "s/CHANGYAN_APPID/$CHANGYAN_APPID/g" ./themes/black-blue-master/_config.yml
 sed -i "s/CHANGYAN_CONF/$CHANGYAN_CONF/g" ./themes/black-blue-master/_config.yml
