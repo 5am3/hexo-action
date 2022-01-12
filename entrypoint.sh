@@ -8,15 +8,6 @@ echo "$INPUT_DEPLOY_KEY" > /root/.ssh/id_rsa
 chmod 600 /root/.ssh/id_rsa
 ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
 
-# setup secret config
-
-sed -i "s/CHANGYAN_APPID/$CHANGYAN_APPID/g" ./themes/black-blue-master
-sed -i "s/CHANGYAN_CONF/$CHANGYAN_CONF/g" ./themes/black-blue-master
-sed -i "s/VALINE_APPID/$VALINE_APPID/g" ./themes/black-blue-master
-sed -i "s/VALINE_APPKEY/$VALINE_APPKEY/g" ./themes/black-blue-master
-sed -i "s/GITMENT_CLIENT_ID/$GITMENT_CLIENT_ID/g" ./themes/black-blue-master
-sed -i "s/GITMENT_CLIENT_SECRET/$GITMENT_CLIENT_SECRET/g" ./themes/black-blue-master
-
 # setup deploy git account
 git config --global user.name "$INPUT_USER_NAME"
 git config --global user.email "$INPUT_USER_EMAIL"
@@ -24,6 +15,17 @@ git config --global user.email "$INPUT_USER_EMAIL"
 # install hexo env
 npm install hexo-cli -g
 npm install hexo-deployer-git --save
+
+
+# setup secret config
+
+sed -i "s/CHANGYAN_APPID/$CHANGYAN_APPID/g" ./themes/black-blue-master/_config.yml
+sed -i "s/CHANGYAN_CONF/$CHANGYAN_CONF/g" ./themes/black-blue-master/_config.yml
+sed -i "s/VALINE_APPID/$VALINE_APPID/g" ./themes/black-blue-master/_config.yml
+sed -i "s/VALINE_APPKEY/$VALINE_APPKEY/g" ./themes/black-blue-master/_config.yml
+sed -i "s/GITMENT_CLIENT_ID/$GITMENT_CLIENT_ID/g" ./themes/black-blue-master/_config.yml
+sed -i "s/GITMENT_CLIENT_SECRET/$GITMENT_CLIENT_SECRET/g" ./themes/black-blue-master/_config.yml
+
 
 # deployment
 if [ "$INPUT_COMMIT_MSG" = "none" ]
