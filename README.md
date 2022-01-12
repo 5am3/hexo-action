@@ -1,5 +1,10 @@
 # GitHub Action - Hexo CI/CD 🌱
 
+# 修改版
+
+> 在原版基础上添加如下配置项，以适配自己主题，并确保敏感数据不外泄
+
+
 <a href="https://github.com/marketplace/actions/hexo-action"><img alt="View Action" src="https://img.shields.io/badge/action-marketplace-blue.svg?logo=github&color=orange"></a>
 <a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg?logo=github"></a>
 
