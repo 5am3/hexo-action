@@ -33,6 +33,7 @@ runs:
     - ${{ inputs.user_email }}
     - ${{ inputs.deploy_key }}
     - ${{ inputs.commit_msg }}
+    - ${{ inputs.else_config }}
 branding:
   icon: 'package'  
   color: 'blue'
