@@ -35,17 +35,18 @@ sed -i "s/GITMENT_CLIENT_ID/$GITMENT_CLIENT_ID/g" ./themes/black-blue-master/_co
 sed -i "s/GITMENT_CLIENT_SECRET/$GITMENT_CLIENT_SECRET/g" ./themes/black-blue-master/_config.yml
 
 # deployment
-if [ "$INPUT_COMMIT_MSG" = "none" ]
-then
-    hexo g -d
-elif [ "$INPUT_COMMIT_MSG" = "" ] || [ "$INPUT_COMMIT_MSG" = "default" ]
-then
-    # pull original publish repo
-    NODE_PATH=$NODE_PATH:$(pwd)/node_modules node /sync_deploy_history.js
-    hexo g -d
-else
-    NODE_PATH=$NODE_PATH:$(pwd)/node_modules node /sync_deploy_history.js
-    hexo g -d -m "$INPUT_COMMIT_MSG"
-fi
+hexo clean && hexo d
+# if [ "$INPUT_COMMIT_MSG" = "none" ]
+# then
+#     hexo g -d
+# elif [ "$INPUT_COMMIT_MSG" = "" ] || [ "$INPUT_COMMIT_MSG" = "default" ]
+# then
+#     # pull original publish repo
+#     NODE_PATH=$NODE_PATH:$(pwd)/node_modules node /sync_deploy_history.js
+#     hexo g -d
+# else
+#     NODE_PATH=$NODE_PATH:$(pwd)/node_modules node /sync_deploy_history.js
+#     hexo g -d -m "$INPUT_COMMIT_MSG"
+# fi
 
 echo ::set-output name=notify::"Deploy complate."
