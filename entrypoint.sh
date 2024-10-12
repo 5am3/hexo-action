@@ -16,6 +16,7 @@ git config --global user.email "$INPUT_USER_EMAIL"
 npm install hexo-cli -g
 npm install hexo-deployer-git --save
 sudo chown -R `whoami` /usr/local/lib/node_modules
+sudo npm install -g --unsafe-perm=true --allow-root
 
 # setup secret config
 
